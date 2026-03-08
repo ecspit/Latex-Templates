@@ -6,6 +6,7 @@
 \usepackage{amsfonts} 
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usetikzlibrary {arrows.meta} 
 \usepackage{parskip}
 \pgfplotsset{compat=1.18}
 \setlength{\parindent}{0pt}
@@ -14,9 +15,12 @@
 % Macros 
 \newcommand\bfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
 
+\newcommand{\eps}{\varepsilon}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
+
 \newcommand{\Ker}{\mathrm{Ker}}
 \newcommand{\Ima}{\mathrm{Im}}
 
@@ -25,7 +29,17 @@
 \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pdder}[2]{\frac{\partial^2#1}{\partial#2^2}}
 
+% Probability 
 \newcommand{\prob}[1]{\mathbb{P}(#1)}
+\newcommand{\bigprob}[1]{\mathbb{P}\Big(#1\Big)}
+
+% Complex Analysis
+\newcommand{\Img}[1]{\mathrm{Im}(#1)}
+\newcommand{\Real}[1]{\mathrm{Re}(#1)}
+\newcommand{\Log}[1]{\mathrm{Log}(#1)}
+\newcommand{\Arg}[1]{\mathrm{Arg}(#1)}
+\newcommand{\ball}[2]{\mathrm{B}_{#1}(#2)}
+\newcommand{\closedball}[2]{\overline{\mathrm{B}}_{#1}(#2)}
 
 % Colours
 \definecolor{BLUE}{RGB}{86,96,179}
