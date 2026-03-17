@@ -1,6 +1,8 @@
 % Packages
 \documentclass{article}
+\usepackage[top=1.5cm,bottom=1.9cm, left=2cm,right=2cm]{geometry}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
 \usepackage{amsmath}   
 \usepackage{amsthm}
 \usepackage{physics}
@@ -18,6 +20,28 @@
 \setlength{\parindent}{0pt}
 \renewcommand{\baselinestretch}{1.3}
 
+% Pagestyle
+\fancypagestyle{firstpage}{
+\fancyhead[R]{DATE}
+\fancyhead[C]{\LARGE \vspace{2pt}\textbf{MODULE}}
+\fancyhead[L]{\textit{David Puerta}}
+\setlength{\headheight}{60pt} 
+\setlength{\headsep}{10pt} 
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\footskip}{12.4pt}
+}
+\fancypagestyle{otherpages}{
+\fancyhead[R]{DATE}
+\fancyhead[L]{\textit{David Puerta}}
+\setlength{\headheight}{25pt} 
+\setlength{\headsep}{10pt}    
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+}
+\thispagestyle{firstpage}
+\pagestyle{otherpages}   
+
 % Colours
 \definecolor{BLUE}{RGB}{101,149,179}
 
@@ -29,6 +53,7 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\ball}[2]{\mathrm{B}_{#1}\left(#2\right)}
 \newcommand{\closedball}[2]{\overline{\mathrm{B}}_{#1}\left(#2\right)}
+\newcommand{\puncball}[2]{\mathrm{B}^*_{#1}\left(#2\right)}
 
 % Function Macros
 \renewcommand{\ker}[1]{\mathrm{Ker}\left(#1\right)}
@@ -58,13 +83,15 @@
 \textbf{Theorem #1}:%
 \if\relax\detokenize{#2}\relax\else\ (#2)\fi%
 }
-
-\title{MODULE \\[9pt] \small LECTURE}
-\author{David Puerta}
-\date{}
+\newcommand{\lemma}[2]{%
+\textbf{Lemma #1}:%
+\if\relax\detokenize{#2}\relax\else\ (#2)\fi%
+}
+\newcommand{\corollary}[2]{%
+\textbf{Corollary #1}:%
+\if\relax\detokenize{#2}\relax\else\ (#2)\fi%
+}
 
 \begin{document}
-
-\maketitle
 
 \end{document}
