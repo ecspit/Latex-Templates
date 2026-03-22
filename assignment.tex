@@ -1,6 +1,6 @@
 % Packages
 \documentclass{article}
-\usepackage[top=1.5cm,bottom=1.9cm, left=2cm,right=2cm]{geometry}
+\usepackage[top=1.5cm,bottom=2.5cm, left=2cm,right=2cm]{geometry}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{amsmath}   
@@ -21,28 +21,30 @@
 \renewcommand{\baselinestretch}{1.3}
 
 % Pagestyle
-\newcommand{\modulename}{MODULE}
-\newcommand{\hwtitle}{TITLE}
-\newcommand{\duedate}{DATE}
-
-\pagestyle{fancy}
-\fancyhf{}
+\newcommand{\modulename}{Methods of Mathematical Physics 2}
+\renewcommand{\date}{18.03.26}
+\setlength{\footskip}{20pt}
+\fancypagestyle{firstpage}{
+\fancyhead[R]{\date}
+\fancyhead[C]{\LARGE \vspace{2pt}\textbf{\modulename}}
 \fancyhead[L]{\textit{David Puerta}}
-\fancyhead[R]{\textit{Due }\duedate}
-\fancyfoot[C]{\thepage}
-
+\setlength{\headheight}{60pt} 
+\setlength{\headsep}{10pt} 
 \renewcommand{\headrulewidth}{0.4pt}
-
-\newcommand{\makeassignmentheader}{
-\begin{center}
-    {\LARGE \textbf{\modulename}} \\[4pt]
-    {\large \hwtitle} \\[6pt] 
-\end{center}
-\vspace{10pt}
-\hrule
-\vspace{10pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{\thepage}
 }
-
+\fancypagestyle{otherpages}{
+\fancyhead[R]{\date}
+\fancyhead[L]{\textit{David Puerta}}
+\setlength{\headheight}{25pt} 
+\setlength{\headsep}{10pt}    
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{\thepage}
+}
+\thispagestyle{firstpage}
+\pagestyle{otherpages}   
 
 % Colours
 \definecolor{BLUE}{RGB}{101,149,179}
@@ -56,7 +58,6 @@
 \newcommand{\ball}[2]{\mathrm{B}_{#1}\left(#2\right)}
 \newcommand{\closedball}[2]{\overline{\mathrm{B}}_{#1}\left(#2\right)}
 \newcommand{\puncball}[2]{\mathrm{B}^*_{#1}\left(#2\right)}
-\newcommand{\res}[2]{\mathrm{Res}_{#1}\left(#2\right)}
 
 % Function Macros
 \renewcommand{\ker}[1]{\mathrm{Ker}\left(#1\right)}
