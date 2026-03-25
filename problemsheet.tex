@@ -1,7 +1,12 @@
-\documentclass{article}
+% Packages
+\documentclass[12pt]{article}
+\usepackage[top=1.5cm,bottom=2.5cm, left=2.5cm,right=2.5cm]{geometry}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{cancel}
 \usepackage{amsmath}   
 \usepackage{amsthm}
+\usepackage{mathtools}
 \usepackage{physics}
 \usepackage{amsfonts} 
 \usepackage{tikz}
@@ -11,69 +16,92 @@
 \usepackage{parskip}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
 \pgfplotsset{compat=1.18}
 \setlength{\parindent}{0pt}
 \renewcommand{\baselinestretch}{1.3}
 
-% Macros 
-\newcommand\bfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+% Pagestyle
+\newcommand{\modulename}{MODULE}
+\newcommand{\pset}{PSET}
+\setlength{\footskip}{20pt}
+\fancypagestyle{firstpage}{
+\fancyhead[R]{\tiny{\pset}}
+\fancyhead[C]{\LARGE \vspace{4pt}\textbf{\modulename}}
+\fancyhead[L]{\tiny{\textit{David Puerta}}}
+\setlength{\headheight}{60pt} 
+\setlength{\headsep}{10pt} 
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{\thepage}
+}
+\fancypagestyle{otherpages}{
+\fancyhead[R]{\pset}
+\fancyhead[L]{\textit{David Puerta}}
+\setlength{\headheight}{25pt} 
+\setlength{\headsep}{10pt}    
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{\thepage}
+}
+\thispagestyle{firstpage}
+\pagestyle{otherpages}   
 
-\newcommand{\dfn}[2]{%
-\textbf{Definition #1}%
-\if\relax\detokenize{#2}\relax\else\ (#2)\fi:%
-}
-\newcommand{\prop}[2]{%
-\textbf{Proposition #1}%
-\if\relax\detokenize{#2}\relax\else\ (#2)\fi:%
-}
-\newcommand{\thm}[2]{%
-\textbf{Theorem #1}%
-\if\relax\detokenize{#2}\relax\else\ (#2)\fi:%
-}
+% Colours
+\definecolor{BLUE}{RGB}{101,149,179}
+
+% Set Marcos
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\Ker}{\mathrm{Ker}}
-\newcommand{\Ima}{\mathrm{Im}}
+\newcommand{\ball}[2]{\mathrm{B}_{#1}\left(#2\right)}
+\newcommand{\closedball}[2]{\overline{\mathrm{B}}_{#1}\left(#2\right)}
+\newcommand{\puncball}[2]{\mathrm{B}^*_{#1}\left(#2\right)}
 
+% Function Macros
+\renewcommand{\ker}[1]{\mathrm{Ker}\left(#1\right)}
+\newcommand{\im}[1]{\mathrm{Im}\left(#1\right)}
 \newcommand{\der}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
 \newcommand{\dder}[2]{\frac{\mathrm{d}^2#1}{\mathrm{d}#2^2}}
 \newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\pdder}[2]{\frac{\partial^2#1}{\partial#2^2}}
+\newcommand{\pddermix}[3]{\frac{\partial^2#1}{\partial#2 \partial#3}}
+\newcommand{\prob}[1]{\mathbb{P}\left(#1\right)}
+\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\V}[1]{\mathrm{Var}\left[#1\right]}
+\renewcommand{\real}[1]{\mathrm{Re}\left(#1\right)}
+\newcommand{\Log}[1]{\mathrm{Log}\left(#1\right)}
+\newcommand{\Arg}[1]{\mathrm{Arg}\left(#1\right)}
+\newcommand{\diag}[1]{\mathrm{diag}\left(#1\right)}
+\newcommand\bfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
 
-\newcommand{\prob}[1]{\mathbb{P}(#1)}
-\newcommand{\bigprob}[1]{\mathbb{P}\Big(#1\Big)}
-
-% Complex Analysis
-\newcommand{\Img}[1]{\mathrm{Im}(#1)}
-\newcommand{\Real}[1]{\mathrm{Re}(#1)}
-\newcommand{\Log}[1]{\mathrm{Log}(#1)}
-\newcommand{\Arg}[1]{\mathrm{Arg}(#1)}
-\newcommand{\ball}[2]{\mathrm{B}_{#1}(#2)}
-\newcommand{\closedball}[2]{\overline{\mathrm{B}}_{#1}(#2)}
-
-% Colours
-\definecolor{BLUE}{RGB}{86,96,179}
+% Statement Macros
+\newcommand{\definition}[2]{%
+\textbf{Definition #1}:%
+\if\relax\detokenize{#2}\relax\else\ (#2)\fi%
+}
+\newcommand{\proposition}[2]{%
+\textbf{Proposition #1}:%
+\if\relax\detokenize{#2}\relax\else\ (#2)\fi%
+}
+\newcommand{\theorem}[2]{%
+\textbf{Theorem #1}:%
+\if\relax\detokenize{#2}\relax\else\ (#2)\fi%
+}
+\newcommand{\lemma}[2]{%
+\textbf{Lemma #1}:%
+\if\relax\detokenize{#2}\relax\else\ (#2)\fi%
+}
+\newcommand{\corollary}[2]{%
+\textbf{Corollary #1}:%
+\if\relax\detokenize{#2}\relax\else\ (#2)\fi%
+}
 
 \begin{document}
 
-% Title Page
-\vspace*{5cm}
-
-\begin{center}
-    \textbf{\LARGE{Module PSX} \\ \large{Solutions}}
-\end{center}
-
-\vspace*{10px}
-
-\begin{center}
-    \textbf{David Puerta}
-\end{center}
-
-\vspace*{\fill}
-
-\newpage
+Text
 
 \end{document}
