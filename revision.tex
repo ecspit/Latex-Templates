@@ -37,13 +37,16 @@
 \definecolor{CYAN}{RGB}{101,179,179}
 \definecolor{MAGENTA}{RGB}{179,101,149}
 
+% Fill in 
+\newcommand{\modulename}{MODULE}
+\newcommand{\lecturers}{LECTURERS}
+\newcommand{\academicyear}{XXXX-XX}
+
 \AddToShipoutPictureBG{
 \begin{tikzpicture}[remember picture,overlay]
 \fill[RED] (current page.north west) rectangle ([xshift=1cm]current page.south west);
 \end{tikzpicture}
 }
-
-\newcommand{\modulename}{MODULE}
 
 \renewcommand{\headrulewidth}{0.4pt}
 
@@ -134,7 +137,7 @@
 \makeassignmentheader
 
 \begin{abstract}
-\noindent These notes are a summary of the \modulename \  module taught by XX XX in XXXX-XX. There will be minimal, if any, proofs as these notes focus on the main results of the course for revision purposes. If you do find any errors or typos, feel free to let me know at \textcolor{gray}{davidpuertamaths@gmail.com}
+\noindent These notes are a summary of the \modulename \  module taught by \lecturers \ in \academicyear. There will be minimal, if any, proofs as these notes focus on the main results of the course for revision purposes. If you do find any errors or typos, feel free to let me know at \textcolor{gray}{davidpuertamaths@gmail.com}
 \end{abstract}
 
 \tableofcontents
